@@ -1,72 +1,100 @@
 package com.example.ambiental.speechrecognition;
 
-import android.bluetooth.BluetoothClass;
-import android.bluetooth.BluetoothDevice;
-import android.bluetooth.BluetoothSocket;
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.media.MediaRecorder;
-import android.speech.RecognizerIntent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import java.io.DataOutputStream;
+import java.io.BufferedWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Locale;
+import java.io.OutputStreamWriter;
+import java.net.Socket;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final int REQ_CODE_SPEECH_INPUT = 100;
-    private TextView txtSpeechInput;
+    public static final String TAG = "Debug";
+    public static ConnectionThread thread;
+
+    public Button connectButton;
+    public EditText ipEditText;
+    public EditText portEditText;
+
+    public String host = "";
+    public String port = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        txtSpeechInput = (TextView) findViewById(R.id.txtSpeechInput);
-        speechRecognition();
+
+        connectButton = (Button) findViewById(R.id.connectButton);
+        ipEditText = (EditText) findViewById(R.id.ipEditText);
+        portEditText = (EditText) findViewById(R.id.portEditText);
+
+        thread = new ConnectionThread();
+        //host += "192.168.1.7";
+        //port = 4444;
+        Log.d(TAG,"Waiting to connect to: "+host);
     }
 
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode) {
-            case REQ_CODE_SPEECH_INPUT: {
-                if (resultCode == RESULT_OK && null != data) {
+    // Function to connect with server socket after enter ip and port values and push connectButton
+    public void connect(final View v) {
 
-                    ArrayList<String> result = data
-                            .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                    txtSpeechInput.setText(result.get(0));
+        new Thread() {
+            @Override
+            public void run() {
+                host = ipEditText.getText().toString();
+                port = portEditText.getText().toString();
+                if( !host.isEmpty() && !port.isEmpty() ){
+                    thread = new ConnectionThread(host, port);
+                    Log.d(TAG,"Thread iniciado.");
+                    thread.connect();
+                    Log.d(TAG,"Thread conectado");
 
+                    if (thread.isConnect()) {
+                        Intent intent = new Intent(v.getContext(), TalkActivity.class);
+                        startActivityForResult(intent,0);
+                    }else{
+                        Log.d(TAG,"Without connection.");
+                    }
+                }else{
+                    //Pendiente
                 }
-                break;
             }
 
-        }
-        speechRecognition();
+//        new Thread() {
+//            @Override
+//            public void run() {
+//                Socket client = null;
+//                Log.d(TAG, "Try to connect with server.");
+//                try {
+//                    client = new Socket(host, 4444); //connect to server
+//                    BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(client.getOutputStream()));
+//                    bw.write("Hello server!!");
+//                    bw.newLine();
+//                    bw.flush();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                    Log.d(TAG, "Error to connect: " + e.getMessage() );
+//                }
+//                Log.d(TAG, "Connection succesful! =D");
+//
+//                try {
+//                    client.close();   //closing the connection
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                    Log.d(TAG, "Connection closed. :( ");
+//                }
+//            }
+//        }.start();
+        }.start();
     }
-
-    protected void speechRecognition() {
-        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
-                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
-        intent.putExtra(RecognizerIntent.EXTRA_PROMPT,
-                getString(R.string.speech_prompt));
-        try {
-            startActivityForResult(intent, REQ_CODE_SPEECH_INPUT);
-        } catch (ActivityNotFoundException a) {
-            Toast.makeText(getApplicationContext(),
-                    getString(R.string.speech_not_supported),
-                    Toast.LENGTH_SHORT).show();
-        }
-
-    }
-
 
     /*
     protected void connectedToBlueetoth(BluetoothDevice connectedDevice, String msg) throws IOException {
@@ -80,5 +108,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
     */
-
 }
