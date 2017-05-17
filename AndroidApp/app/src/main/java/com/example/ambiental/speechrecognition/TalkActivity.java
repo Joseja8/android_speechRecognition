@@ -52,7 +52,7 @@ public class TalkActivity extends AppCompatActivity {
 //                            talkButton.setClickable(false);
 //                        }
                         try {
-                            bufferedW.write((String) txtSpeechInput.getText());
+                            bufferedW.write((String)txtSpeechInput.getText());
                             bufferedW.newLine();
                             bufferedW.flush();
                         } catch (IOException e) {
