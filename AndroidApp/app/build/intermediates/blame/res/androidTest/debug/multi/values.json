@@ -1,0 +1,26 @@
+[
+    {
+        "outputFile": "/home/joseja/Documents/PyCharmProjects/android_speechRecognition/AndroidApp/app/build/intermediates/res/merged/androidTest/debug/values/values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 45,
+                    "endOffset": 96
+                },
+                "from": {
+                    "file": "/home/joseja/.android/build-cache/f8ae8b5738b6e369b990213083624ae1e83fe639/output/res/values/values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 229,
+                        "endColumn": 45,
+                        "endOffset": 270
+                    }
+                }
+            }
+        ]
+    }
+]

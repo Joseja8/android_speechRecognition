@@ -1,0 +1,6 @@
+COMMAND=PREDEX_LIBRARY_TO_DEX_ARCHIVE
+FILE_PATH=/home/joseja/Documents/PyCharmProjects/android_speechRecognition/AndroidApp/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar
+FILE_HASH=f50791a6c2a8ca420e7ec9c5abc1e2b419720efe
+DX_VERSION=1.13
+JUMBO_MODE=true
+OPTIMIZE=true

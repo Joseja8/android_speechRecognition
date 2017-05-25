@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/home/joseja/Documents/PyCharmProjects/android_speechRecognition/AndroidApp/app/build/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
+        "source": "/home/joseja/.android/build-cache/6ac6bb92ae79c6b4c59364a977409d5da738b084/output/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/home/joseja/Documents/PyCharmProjects/android_speechRecognition/AndroidApp/app/build/intermediates/res/merged/debug/layout-v21/notification_action.xml",
+        "source": "/home/joseja/.android/build-cache/6ac6bb92ae79c6b4c59364a977409d5da738b084/output/res/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "/home/joseja/Documents/PyCharmProjects/android_speechRecognition/AndroidApp/app/build/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
+        "source": "/home/joseja/.android/build-cache/6ac6bb92ae79c6b4c59364a977409d5da738b084/output/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/home/joseja/Documents/PyCharmProjects/android_speechRecognition/AndroidApp/app/build/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
+        "source": "/home/joseja/.android/build-cache/6ac6bb92ae79c6b4c59364a977409d5da738b084/output/res/layout-v21/notification_action_tombstone.xml"
+    }
+]

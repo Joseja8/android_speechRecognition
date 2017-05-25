@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/joseja/Documents/PyCharmProjects/android_speechRecognition/AndroidApp/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/ic_launcher_round.png",
+        "source": "/home/joseja/Documents/PyCharmProjects/android_speechRecognition/AndroidApp/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/joseja/Documents/PyCharmProjects/android_speechRecognition/AndroidApp/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/ic_launcher.png",
+        "source": "/home/joseja/Documents/PyCharmProjects/android_speechRecognition/AndroidApp/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    }
+]

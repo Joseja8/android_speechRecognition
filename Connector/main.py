@@ -1,11 +1,12 @@
 from pyfirmata import Arduino, time
 import nltk
+from nltk.tokenize import TreebankWordTokenizer
 import sys
 
 board = Arduino('/dev/ttyACM0')
 
 nltk.data.path.append("/home/joseja/Documents/nltk_data")
-tokenizer = nltk.TrekebankWordTokenizer()
+tokenizer = TreebankWordTokenizer()
 
 
 def parse_input_tokens(input_tokens):

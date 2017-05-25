@@ -1,0 +1,4 @@
+#Wed May 17 10:24:45 CEST 2017
+base.0=/home/joseja/Documents/PyCharmProjects/android_speechRecognition/AndroidApp/app/build/intermediates/transforms/dexMerger/debug/folders/1000/5/slice_4
+renamed.0=classes.dex
+file.0=/home/joseja/Documents/PyCharmProjects/android_speechRecognition/AndroidApp/app/build/intermediates/transforms/dexMerger/debug/folders/1000/5/slice_4/classes.dex
